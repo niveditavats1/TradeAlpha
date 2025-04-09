@@ -1,7 +1,7 @@
 import { useState } from 'react'
 // import Login from './components/login/Login';
 import Login from './components/login/Login';
-
+import About from  './components/about/About';
 
 
 
@@ -22,7 +22,7 @@ isLoggedIn: false
 */
   return (
     <>
-    {user.isLoggedIn && <h1>Hello World</h1>}
+    {user.isLoggedIn && <About setUserInParentComponent = {setUser} />}
     {!user.isLoggedIn && <Login setUserInParentComponent = {setUser}/>}
    
     </>
