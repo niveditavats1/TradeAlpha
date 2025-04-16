@@ -1,9 +1,11 @@
 import { useState } from 'react'
 // import Login from './components/login/Login';
-import Login from './components/login/Login';
-import About from  './components/about/About';
-
-
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import Login from './components/Login.jsx';
+import About from  './components/About.jsx';
+import Navbar from './components/Navbar.jsx';
+import Market from './components/Market.jsx';
+import Portfolio from './components/Portfolio.jsx';
 
 function App() {
   
@@ -11,6 +13,16 @@ function App() {
 user: '',
 isLoggedIn: false
   });
+
+const handleLogout = () => {
+  setUser((prevState) => ({
+    ...prevState,
+    isLoggedIn: false 
+  }));
+
+};
+
+
 
 /*
 {
@@ -22,9 +34,15 @@ isLoggedIn: false
 */
   return (
     <>
-    {user.isLoggedIn && <About setUserInParentComponent = {setUser} />}
-    {!user.isLoggedIn && <Login setUserInParentComponent = {setUser}/>}
-   
+    <Router>
+      {user.isLoggedIn && <Navbar onLogout = {handleLogout} />}
+      <Routes>
+        <Route path="/" element={user.isLoggedIn ? <Portfolio /> : <Login setUserInParentComponent={setUser} />} />
+        <Route path="/about" element={user.isLoggedIn ? <About /> : <Login setUserInParentComponent={setUser} />} />
+        <Route path="/market" element={user.isLoggedIn ? <Market /> : <Login setUserInParentComponent={setUser} />}  />
+        <Route path="/portfolio" element={user.isLoggedIn ? <Portfolio /> : <Login setUserInParentComponent={setUser} />}  />
+      </Routes>
+    </Router>
     </>
   )
 }

@@ -1,5 +1,5 @@
 // import userpic from '../../assets/Nivi_Pic.jpeg';
-import '../../style/author.css'
+import '../style/author.css'
 
 
 const Author = ({img, bio}) => {

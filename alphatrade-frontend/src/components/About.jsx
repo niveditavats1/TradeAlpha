@@ -1,8 +1,8 @@
 
-import '../../style/about.css';
-import Author from '../author/Author';
-import usrimg from '../../assets/Nivi_Pic.jpeg';
-import usrimg2 from '../../assets/nivi.jpg';
+import '../style/about.css';
+import Author from '../components/Author';
+import usrimg from '../assets/Nivi_Pic.jpeg';
+import usrimg2 from '../assets/nivi.jpg';
 
 const About = ({ setUserInParentComponent }) => {
    const handleLogout = (event) => {

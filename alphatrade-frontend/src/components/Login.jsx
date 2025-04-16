@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
-import '../../style/login.css';
+import '../style/login.css';
 
 const Login = ({setUserInParentComponent}) => {
    
