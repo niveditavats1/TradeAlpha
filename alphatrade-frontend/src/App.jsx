@@ -15,6 +15,7 @@ isLoggedIn: false
   });
 
 const handleLogout = () => {
+  console.log('...');
   setUser((prevState) => ({
     ...prevState,
     isLoggedIn: false 
@@ -35,7 +36,7 @@ const handleLogout = () => {
   return (
     <>
     <Router>
-      {user.isLoggedIn && <Navbar onLogout = {handleLogout} />}
+      {user.isLoggedIn && <Navbar handleLogout = {handleLogout} />}
       <Routes>
         <Route path="/" element={user.isLoggedIn ? <Portfolio /> : <Login setUserInParentComponent={setUser} />} />
         <Route path="/about" element={user.isLoggedIn ? <About /> : <Login setUserInParentComponent={setUser} />} />
